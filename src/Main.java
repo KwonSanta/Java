@@ -1,20 +1,38 @@
-import java.util.Arrays;
+import java.util.ArrayList;
 
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
+        Time t = new Time();
+//        t.hour = -100;
+        t.setHour(21);
+        System.out.println(t.getHour());
+    }
+}
 
-        String answer = "";
-        String my_string = "Bcad";
+class Time {
+    private int hour;  // 0 ~ 23 사이의 값을 가져야함.
+    private int minute;
+    private int second;
 
-        my_string = my_string.toLowerCase();
-        char[] chArr = my_string.toCharArray();
-        Arrays.sort(chArr);
+//    public void setHour(int hour) {
+//        if (hour < 0 || hour > 23) {
+//            return;
+//        }
+//        this.hour = hour;
+//    }
+//
+//    public int getHour() {
+//        return hour;
+//    }
 
-        for (int i = 0; i < chArr.length; i++) {
-            answer += chArr[i];
+    public int getHour() {
+        return hour;
+    }
+
+    public void setHour(int hour) {
+        if (hour < 0 || hour > 23) {
+            return;
         }
-        System.out.println("answer = " + answer);
+        this.hour = hour;
     }
 }
