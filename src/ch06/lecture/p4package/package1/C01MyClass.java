@@ -7,5 +7,6 @@
 package ch06.lecture.p4package.package1;
 
 public class C01MyClass {
+    public int age;
     // 클래스명 : ch06.lecture.p4package.package1.C01MyClass
 }
