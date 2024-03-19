@@ -4,29 +4,25 @@ import java.util.stream.Collectors;
 public class Main {
     public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
-        int rowIndex = sc.nextInt();
-        List<Integer> numList = new LinkedList<>();
-        List<Integer> resultList = new LinkedList<>();
+        // nums1, nums2 를 비교하여 중복되는 값을 뺸 배열을 answer[0], answer[1]로 출력
+        int[] nums1 = {1, 2, 3};
+        int[] nums2 = {2, 4, 6};
+        // 합친 set에서 remove num2원소 = answer[0]
+        //                   num1원소 = answer[1]
 
-        if (rowIndex == 0) {
-            resultList.add(1);
-        } else if (rowIndex == 1) {
-            resultList.add(1);
-            resultList.add(1);
-        } else { // rowIndex > 1 : 2, 3, 4, ..., 33
-            numList.add(1);
-            numList.add(1);
-            for (int i = 1; i < rowIndex; i++) {
-//                List<Integer> resultList = new LinkedList<>();
-//
-//                resultList1.add(numList.get(i - 1) + numList.get(i));
-//                // numList(0) + numList(1), numList(1) + numList(2)
-//                resultList.addFirst(0);
-//                resultList.addLast(0);
-//                numList = resultList;
-
-            }
+        // 합친 Set 생성
+        Set<Integer> set = new HashSet<>();
+        for (int num : nums1) {
+            set.add(num);
         }
+        for (int num : nums2) {
+            set.add(num);
+        }
+        System.out.println(set);
+
+        for (int num : set) {
+            set.contains(num);
+        }
+
     }
 }
