@@ -34,13 +34,4 @@ public class Board {
     public void setWriter(String writer) {
         this.writer = writer;
     }
-
-    @Override
-    public String toString() {
-        return "Board{" +
-                "subject='" + subject + '\'' +
-                ", content='" + content + '\'' +
-                ", writer='" + writer + '\'' +
-                '}';
-    }
 }

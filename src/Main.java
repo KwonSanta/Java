@@ -3,37 +3,23 @@ import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
-        int[] students = {1, 1, 1};
-        int[] sandwiches = {0, 1, 1};
+        String[] arr = {"apple", "banana", "orange"};
 
-        // We create a stack and the queue to simulate the serving process
-        Stack<Integer> sandwichStack = new Stack<>();
-        Queue<Integer> studentQueue = new LinkedList<>();
-        // populate the stack and the queue
-        for (int i = 0; i < students.length; i++) {
-            sandwichStack.push(sandwiches[sandwiches.length - i - 1]);
-            studentQueue.offer(students[i]);
-        }
+        // Array -> List
+        // #1. Arrays.asList(arr) 메소드 사용 (👍🏼)
+        List<String> list1 = Arrays.asList(arr);
+        // #2. List.of(arr) 메소드 사용
+        List<String> list2 = List.of(arr);
+        // #3. Stream 이용 (👍🏼)
+        List<String> list3 = Arrays.stream(arr).toList();  // jdk 16~
+        List<String> list4 = Arrays.stream(arr).collect(Collectors.toList()); // jkd 8~
 
-        int couldntServe = 0;   // number of students that'll be left hungry
-        while (true) {
-            if (sandwichStack.peek() == studentQueue.peek()) {  // if types match
-                couldntServe = 0;       // served the current student
-                sandwichStack.pop();    // sandwich served
-                studentQueue.poll();    // student moves out of queue
-            } else {
-                couldntServe++;         // couldnt serve so increment count
-                studentQueue.offer(studentQueue.poll());    // move the student to the end of queue
-            }
+        // List -> Array
+        // #1. list.toArray() 메소드 사용 (👍🏼)
+        Object[] arr1 = list1.toArray();
+        String[] stringArr1 = Arrays.copyOf(arr1, arr1.length, String[].class); // Object[] -> String[] 형변환 과정 필요
+        // #2. Stream 이용 ((👍🏼)
+        String[] arr2 = list1.toArray(new String[0]);
 
-            // the unserved students will keep accumulating the the back of the queue
-            // until a situation would occur when we won't be able to serve them anymore due to type mismatch
-            // the queue will be left with only unservable students
-            if (couldntServe == studentQueue.size()) {  // that's when this condition would be hit
-                break;
-            }
-        }
-        System.out.println(couldntServe);
-//        return couldntServe;    // return the number of unserved students
     }
 }

@@ -1,6 +1,7 @@
 package ch15.sec02.exam01;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class ArrayListExample {
@@ -14,27 +15,25 @@ public class ArrayListExample {
         list.add(new Board("제목5", "내용5", "글쓴이5"));
 
         int size = list.size();
-        System.out.println("size = " + size);
+        System.out.println("총 객체 수: " + size);
         System.out.println();
 
         Board board = list.get(2);
-        System.out.println(board.getSubject() + "\t" + board.getContent() + "\t" + board.getWriter());
-        System.out.println();
+        System.out.println("board.getSubject() = " + board.getSubject());
+        System.out.println("board.getContent() = " + board.getContent());
+        System.out.println("board.getWriter() = " + board.getWriter());
 
-        for (int i = 0; i < list.size(); i++) {
-            Board b = list.get(i);
-            System.out.println(b.getSubject() + "\t" + b.getContent() + "\t" + b.getWriter());
-        }
-        System.out.println();
-
-        list.remove(2);
-        list.remove(2);
-
-        for (Board b : list) {
-            System.out.println(b.getSubject() + "\t" + b.getContent() + "\t" + b.getWriter());
-        }
-
-        // 전체 탐색 (lambda)
-        list.forEach(System.out::println);
+        // 전체 탐색
+//        for (int i = 0; i < list.size(); i++) {
+//            Board b = list.get(i);
+//            System.out.println(b.getSubject() + " " + b.getContent() + " " + b.getWriter());
+//        }
+//        for (Board b : list) {
+//            System.out.println(b.getSubject() + " " + b.getContent() + " " + b.getWriter());
+//        }
+//        list.forEach((b) -> {
+//            System.out.println(b.getSubject() + " " + b.getContent() + " " + b.getWriter());
+//        });
+        
     }
 }
