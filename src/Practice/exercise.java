@@ -12,8 +12,3 @@ public class exercise {
         };
     }
 }
-
-@FunctionalInterface
-interface MyFunction {
-    public abstract int max(int a, int b);
-}
